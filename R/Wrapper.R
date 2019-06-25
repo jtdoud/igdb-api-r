@@ -47,7 +47,7 @@ igdb_complete_request <- function(completePath = "", key = "") {
     stop("API did not return json", call. = FALSE)
   }
 
-  parsed <- jsonlite::fromJSON(content(resp, "text"), simplifyVector = FALSE)
+  parsed <- jsonlite::fromJSON(content(resp, "text"))
 
   if (http_error(resp)) {
     msg = list("IGDB API request failed", str(status_code(resp)))
